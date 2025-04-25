@@ -20,8 +20,6 @@ jobs:
       matrix:
         config:
         - {runs_on: ['self-hosted', 'CPU'], arch: 'x86_64'}
-        - {runs_on: 'ubuntu-22.04-arm', arch: 'aarch64'}
-
 
     permissions:
       id-token: write
