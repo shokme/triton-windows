@@ -83,10 +83,6 @@ def _build(name, src, srcdir, library_dirs, include_dirs, libraries):
     include_dirs = include_dirs + [srcdir, py_include_dir, *custom_backend_dirs]
     if os.name == "nt":
         library_dirs += find_python()
-    # Link against Python stable ABI
-    # libraries is modified in place
-    if "python3" not in libraries:
-        libraries += ["python3"]
     if is_msvc(cc):
         _, msvc_winsdk_inc_dirs, msvc_winsdk_lib_dirs = find_msvc_winsdk()
         include_dirs += msvc_winsdk_inc_dirs

@@ -303,13 +303,14 @@ def find_msvc_winsdk(
 
 @functools.cache
 def find_python() -> list[str]:
+    version = sysconfig.get_python_version().replace(".", "")
     for python_base_path in [
         sys.exec_prefix,
         sys.base_exec_prefix,
         os.path.dirname(sys.executable),
     ]:
         python_lib_dir = Path(python_base_path) / "libs"
-        if (python_lib_dir / "python3.lib").exists():
+        if (python_lib_dir / f"python{version}.lib").exists():
             return [str(python_lib_dir)]
 
     warnings.warn("Failed to find Python libs.")
