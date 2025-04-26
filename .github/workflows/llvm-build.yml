@@ -36,6 +36,7 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
+        set-safe-directory: false
         path: llvm-build
 
     - name: Fetch LLVM Commit Hash
