@@ -76,7 +76,7 @@ jobs:
     - name: Install Prerequisites
       shell: bash
       run: |
-        python3 -m pip install cmake ninja sccache
+        python -m pip install cmake ninja sccache
         mkdir -p ${{ env.SCCACHE_DIR }}
         rm -rf ${{ env.SCCACHE_DIR }}/*
 
@@ -90,7 +90,7 @@ jobs:
     - name: Configure, Build, Test, and Install LLVM (Windows)
       if: matrix.config.arch == 'x64' && (matrix.config.target-os == 'windows')
       run: >
-        python3 -m pip install -r llvm-project/mlir/python/requirements.txt
+        python -m pip install -r llvm-project/mlir/python/requirements.txt
 
         cmake -GNinja -Bllvm-project/build
         -DCMAKE_BUILD_TYPE=Release
