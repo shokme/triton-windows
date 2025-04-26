@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  SCCACHE_DIR: ${{ github.workspace }}/sccache
+  SCCACHE_DIR: '${{ github.workspace }}/sccache'
 
 permissions:
   contents: read
@@ -38,13 +38,6 @@ jobs:
       with:
         set-safe-directory: false
         path: llvm-build
-
-    - name: Setup SCCACHE_DIR correctly
-      shell: bash
-      run: |
-        echo "Before: $SCCACHE_DIR"
-        SCCACHE_DIR="${SCCACHE_DIR//'\'/'/'}"
-        echo "After: $SCCACHE_DIR"
 
     - name: Fetch LLVM Commit Hash
       shell: bash
