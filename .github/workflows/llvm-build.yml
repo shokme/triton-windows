@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  SCCACHE_DIR: '${{ github.workspace }}/sccache'
+  SCCACHE_DIR: '${{ github.action_path }}/sccache'
 
 permissions:
   contents: read
